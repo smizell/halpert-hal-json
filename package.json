@@ -1,0 +1,35 @@
+{
+  "name": "halpert-hal-json",
+  "version": "0.1.0",
+  "description": "Halpert HAL+JSON",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp mocha"
+  },
+  "keywords": [
+    "halpert",
+    "hypermedia"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smizell/halpert-hal-json.git"
+  },
+  "author": "Stephen Mizell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smizell/halpert-hal-json/issues"
+  },
+  "homepage": "https://github.com/smizell/halpert-hal-json",
+  "devDependencies": {
+    "mocha": "~1.19.0",
+    "gulp-mocha": "~0.4.1",
+    "chai": "~1.9.1",
+    "gulp": "~3.6.2",
+    "gulp-watch": "~0.6.5"
+  },
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "coffee-script": "~1.7.1",
+    "halpert-representer": "~0.1.4"
+  }
+}
