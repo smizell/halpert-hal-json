@@ -1,28 +1,15 @@
-{properties} = require('../../lib/parser')
+{parseProperties} = require('../../lib/parser')
+{halRep} = require('../fixtures/propertiesExample')
 chai = require('chai')
 expect = chai.expect
-
-halRep =
-  field1: 1
-  field2: 2
-  _links:
-    item:
-      href: "/item/1"
-    order:
-      href: "/order/1"
-  _embedded:
-    customer:
-      _links:
-        next:
-          href: "/customers1"
 
 describe "HAL Properties", ->
 
   it "should return only the properties", ->
-    rep = properties(halRep)
+    rep = parseProperties(halRep)
     expect(rep.properties.field1).to.equal 1
 
   it "should not return the links", ->
-    rep = properties(halRep)
+    rep = parseProperties(halRep)
     expect(rep.properties._links).to.be.an('undefined')
 

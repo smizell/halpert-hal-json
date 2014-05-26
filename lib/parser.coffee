@@ -10,7 +10,7 @@ parseLinkItem = (link) ->
   linkItem.classes = [link.name] if link.name?
   linkItem
 
-module.exports.links = parseLinks = (halRep) ->
+module.exports.parseLinks = parseLinks = (halRep) ->
     rep = new Representer
 
     unless halRep._links?
@@ -36,12 +36,12 @@ module.exports.links = parseLinks = (halRep) ->
     rep.templatedLinks.items = templatedLinks.map (link) -> parseLinkItem(link)
     rep
 
-module.exports.properties = parseProperties = (halRep) ->
+module.exports.parseProperties = parseProperties = (halRep) ->
     rep = new Representer
     rep.properties = _.omit(halRep, "_links", "embedded")
     rep
 
-module.exports.embedded = parseEmbedded = (halRep) ->
+module.exports.parseEmbedded = parseEmbedded = (halRep) ->
     rep = new Representer
 
     unless halRep._embedded?
@@ -59,7 +59,7 @@ module.exports.embedded = parseEmbedded = (halRep) ->
     rep.partials.items = embeddedArray
     rep
 
-module.exports.resource = parseResource = (halRep, rel) ->
+module.exports.parseResource = parseResource = (halRep, rel) ->
     rep = new Representer
     rep.rels = [ rel ] if rel
 
@@ -73,5 +73,10 @@ module.exports.resource = parseResource = (halRep, rel) ->
     rep.partials = partials.partials
 
     rep
+
+module.exports.parseHal = parseHal = (formats, halRep) ->
+  rep = parseResource(halRep)
+  rep.formats = formats
+  rep
 
 
