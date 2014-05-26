@@ -28,8 +28,6 @@
     "gulp-watch": "~0.6.5",
     "gulp-coffee": "~1.4.3",
     "gulp-util": "~2.2.14",
-    "gulp-grep-stream": "0.0.2",
-    "gulp-plumber": "~0.6.2",
     "coffee-script": "~1.7.1",
     "gulp-coffeelint": "~0.3.3"
   },
