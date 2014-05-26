@@ -6,28 +6,36 @@ var gulp = require('gulp'),
     coffee = require('gulp-coffee'),
     gutil = require('gulp-util'),
     grep = require('gulp-grep-stream'),
-    plumber = require('gulp-plumber');
+    coffeelint = require('gulp-coffeelint');
 
-gulp.task('build', function() {
-  gulp.src('./src/**/*.coffee')
+var mochaOpts = {
+  ui: "bdd",
+  reporter: "list",
+  compilers: "coffee:coffee-script"
+}
+
+gulp.task('lint', function() {
+  return gulp
+    .src(['./src/**/*.coffee', './test/**/*.coffee'])
+    .pipe(coffeelint())
+    .pipe(coffeelint.reporter())
+});
+
+gulp.task('test', function() {
+  return gulp
+    .src('./test/**/*.coffee')
+    .pipe(mocha(mochaOpts))
+});
+
+gulp.task('coffee', function() {
+  return gulp.src('./src/**/*.coffee')
     .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(gulp.dest('./lib/'))
 });
 
-gulp.task('mocha', function() {
-  gulp.src(['./index.js', './src/**/*.coffee', './test/**/*.coffee'], { read: false })
-    .pipe(watch({ emit: 'all' }, function(files) {
-      files
-        .pipe(grep('**/test/**/*.coffee'))
-        .pipe(mocha({
-          ui: "bdd",
-          reporter: "list",
-          compilers: "coffee:coffee-script"
-        }))
-        .on('error', function(err) {
-          if (!/tests? failed/.test(err.stack)) {
-              console.log(err.stack);
-          }
-        })
-    }));
+gulp.task('watch', function() {
+  gulp.watch(['./src/**/*.coffee', './test/**/*.coffee'], ['lint', 'test']);
 });
+
+gulp.task('build', ['coffee'])
+gulp.task('default', ['lint', 'test', 'watch']);

@@ -1,4 +1,4 @@
-hal = require('../index')
+hal = require('../src/index')
 halRep = require('./fixtures/fullExample')
 chai = require('chai')
 expect = chai.expect

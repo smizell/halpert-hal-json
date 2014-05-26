@@ -5,7 +5,7 @@ module.exports.basicLinks =
     order:
       href: "/order/1"
 
-module.exports.linksWithArrays = 
+module.exports.linksWithArrays =
   _links:
     item: [
       { href: "/item/1" }
@@ -15,7 +15,7 @@ module.exports.linksWithArrays =
     order:
       href: "/order/1"
 
-module.exports.complexExample = 
+module.exports.complexExample =
   _links:
     item: [
       { href: "/item/1" }

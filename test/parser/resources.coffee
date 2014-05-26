@@ -1,4 +1,4 @@
-{parseResource, parseEmbedded} = require('../../lib/parser')
+{parseResource, parseEmbedded} = require('../../src/parser')
 halRep = require('../fixtures/fullExample')
 chai = require('chai')
 expect = chai.expect

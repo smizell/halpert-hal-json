@@ -1,4 +1,4 @@
-{parseProperties} = require('../../lib/parser')
+{parseProperties} = require('../../src/parser')
 {halRep} = require('../fixtures/propertiesExample')
 chai = require('chai')
 expect = chai.expect

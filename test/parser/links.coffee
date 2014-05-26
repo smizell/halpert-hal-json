@@ -1,5 +1,7 @@
-{parseLinks} = require('../../lib/parser')
-{basicLinks, linksWithArrays, complexExample} = require('../fixtures/linkExamples')
+{parseLinks} = require('../../src/parser')
+{basicLinks, linksWithArrays} = require('../fixtures/linkExamples')
+{complexExample} = require('../fixtures/linkExamples')
+
 chai = require('chai')
 expect = chai.expect
 
