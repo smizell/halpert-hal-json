@@ -25,11 +25,15 @@
     "gulp-mocha": "~0.4.1",
     "chai": "~1.9.1",
     "gulp": "~3.6.2",
-    "gulp-watch": "~0.6.5"
+    "gulp-watch": "~0.6.5",
+    "gulp-coffee": "~1.4.3",
+    "gulp-util": "~2.2.14",
+    "gulp-grep-stream": "0.0.2",
+    "gulp-plumber": "~0.6.2",
+    "coffee-script": "~1.7.1"
   },
   "dependencies": {
     "lodash": "~2.4.1",
-    "coffee-script": "~1.7.1",
     "halpert-representer": "~0.1.4"
   }
 }
