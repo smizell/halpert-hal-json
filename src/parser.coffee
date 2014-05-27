@@ -39,7 +39,7 @@ module.exports.parseLinks = parseLinks = (halRep) ->
 
 module.exports.parseProperties = parseProperties = (halRep) ->
   rep = new Representer
-  rep.properties = _.omit(halRep, "_links", "embedded")
+  rep.properties = _.omit(halRep, "_links", "_embedded")
   rep
 
 module.exports.parseEmbedded = parseEmbedded = (halRep) ->
