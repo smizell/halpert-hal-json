@@ -13,3 +13,7 @@ describe "HAL Properties", ->
     rep = parseProperties(halRep)
     expect(rep.properties._links).to.be.an('undefined')
 
+  it "should not return embedded items", ->
+    rep = parseProperties(halRep)
+    expect(rep.properties._embedded).to.be.an('undefined')
+
